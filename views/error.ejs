@@ -1,0 +1,55 @@
+<head>
+	<title>Aw, snap!</title>
+	<link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+
+
+<div id="error_box">
+
+		<h1>
+			<%= message %>
+		</h1>
+		<h2>
+			<%= error.status %>
+		</h2>
+</div>
+
+<h1>Aw, snap!</h1>
+<h2>An error occured processing your request.</h2>
+
+<!-- check if client 4xx error -->
+<% if (error.status >= 400 && error.status < 500) { %>
+	<p>
+		<em>You, or your browser, sent an invalid request the server cannot handle.</em>
+	</p>
+<% } else { %>
+	<p>
+		<em>Something went wrong on our end. Please try again later.</em>
+	</p>
+<% } %>
+<footer>
+	<p>
+		<%= error %><br><br>
+		<em>&copy; znci 2023 - hello@znci.dev</em>
+	</p>
+	<div class="dropdown">
+		<span>Debug Info (hover)</span>
+		<div class="dropdown-content">
+			<ul class="menu">
+				<p>Debug Info</p>
+				<li>IP Address: <%= debug.ip %>
+				</li>
+				<li>Request URL: <%= debug.url %>
+				</li>
+				<li>Request Method: <%= debug.method %>
+				</li>
+				<li>Your Session: <%= debug.session %>
+				</li>
+				<p><%= debug.explaination %></p>
+			</ul>
+		</div>
+	</div>
+</footer>
+
+</body>
